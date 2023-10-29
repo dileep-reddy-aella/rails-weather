@@ -97,7 +97,7 @@ So, if you'd like to run this project locally, you'll need the master key.
 ### Styling
 
 TailwindCSS has been used for styling.
-  - Hence, to run the app locally after, to run the server user `./bin/dev` instead of usual `rails server` for tailwind styling to come into action.
+  - Hence, to run the app locally, to run the server use `./bin/dev` instead of usual `rails server` for tailwind styling to come into action.
 
 
 
