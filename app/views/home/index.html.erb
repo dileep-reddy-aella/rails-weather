@@ -1,0 +1,21 @@
+<div class="p-6 bg-blue-50 rounded-md shadow-md">
+  <%= render partial: 'shared/form'%>
+  <% if @weather_presenter %>
+    <div class="mx-auto text-center">
+      <h1 class="text-2xl font-bold mt-4"><%= @weather_presenter.location %></h1>
+      <p class="text-gray-600">Today's Date: <%= @weather_presenter.date %></p>
+      <div class="flex flex-row items-center justify-center">
+        <img src="<%= @weather_presenter.weather_icon %>"/>
+        <p class="text-3xl font-semibold"><%= @weather_presenter.temperature %>°C</p>
+      </div>
+      <p class="text-gray-700">High: <%= @weather_presenter.high_temperature %>°C</p>
+      <p class="text-gray-700">Low: <%= @weather_presenter.low_temperature %>°C</p>
+      <p class="text-blue-500 font-semibold capitalize"><%= @weather_presenter.weather_description %></p>
+      <% if @is_cached %>
+        <p class="text-xs">Please note that the displayed data may not be entirely precise</p>
+      <% end %>
+    <div>
+  <% elsif params[:query].present? %>
+    <p class="text-red-500 mt-4">Location not found. Please try a different location.</p>
+  <% end %>
+</div>

@@ -1,0 +1,32 @@
+<%= form_with url: root_path, method: :get, class: "mb-4", local: true,data: {
+                                            controller: :maps,
+                                            action: "google-maps-callback@window->maps#initializeMap"
+                                          } do |form| %>
+  <div class="mb-4">
+    <%= form.label :query, "Enter Location:", class: "block text-gray-700 text-sm font-bold mb-2 field" %>
+    <%= form.search_field :query,
+                          data: { target: "maps.field", action: "keydown->maps#preventSubmit input->maps#clearCoordinates" },
+                          class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline field" %>
+  </div>
+
+  <div class="flex flex-row justify-between mb-4">
+  <div class="field">
+    <%= form.label :latitude, class: "block text-gray-700 text-sm font-bold mb-2 field" %>
+    <%= form.text_field :latitude, readonly: true, class: 'form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight', data: { target: "maps.latitude" } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :longitude, class: "block text-gray-700 text-sm font-bold mb-2 field" %>
+    <%= form.text_field :longitude, readonly: true, class: 'form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight', data: { target: "maps.longitude" } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zipcode, class: "block text-gray-700 text-sm font-bold mb-2 field" %>
+    <%= form.text_field :zipcode, readonly: true, class: 'form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight', data: { target: "maps.zipcode" } %>
+  </div>
+  </div>
+
+  <div class="flex items-center justify-between">
+    <%= form.submit "Search", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+  </div>
+<% end %>
