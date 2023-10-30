@@ -8,6 +8,7 @@
         <img src="<%= @weather_presenter.weather_icon %>"/>
         <p class="text-3xl font-semibold"><%= @weather_presenter.temperature %>°C</p>
       </div>
+      <p class="text-gray-700">Real Feel: <%= @weather_presenter.temperature_feels_like %>°C</p>
       <p class="text-gray-700">High: <%= @weather_presenter.high_temperature %>°C</p>
       <p class="text-gray-700">Low: <%= @weather_presenter.low_temperature %>°C</p>
       <p class="text-blue-500 font-semibold capitalize"><%= @weather_presenter.weather_description %></p>
