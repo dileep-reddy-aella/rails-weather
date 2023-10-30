@@ -7,7 +7,9 @@ class HomeController < ApplicationController
 
     # Fetch zipcode from lat & long (For caching)
     # Google Places Autocomplete API doesn't always return Zipcode
-    zipcode = LocationService.get_zipcode_from_lat_lng(latitude:, longitude:) if zipcode.blank?
+    if zipcode.blank? && latitude.present? && longitude.present?
+      zipcode = LocationService.get_zipcode_from_lat_lng(latitude:, longitude:)
+    end
 
     cache_key = "weather_#{zipcode}"
 

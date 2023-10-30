@@ -14,8 +14,8 @@ class WeatherService
     return if latitude.blank? || longitude.blank?
 
     fetch_weather
-  rescue e
-    Rails.logger.error(e) # You can send this to Sentry
+  rescue => e
+    Rails.logger.error(e) # We can log this to Sentry
   end
 
   private
