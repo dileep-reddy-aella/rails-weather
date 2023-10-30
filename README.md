@@ -11,6 +11,8 @@
   - [MapsController](#mapscontroller)
   - [Sensitive Data Storage](#sensitive-data-storage)
   - [Styling](#styling)
+  - [Testing](#testing)
+- [Setup](#setup)
 
 ## Description
 
@@ -99,5 +101,14 @@ So, if you'd like to run this project locally, you'll need the master key.
 TailwindCSS has been used for styling.
   - Hence, to run the app locally, to run the server use `./bin/dev` instead of usual `rails server` for tailwind styling to come into action.
 
+### Testing
 
+  - Uses `Rspec` gem for testing.
+  - Specs are available for controller and service objects
 
+## Setup
+
+  - After cloning the repository run `bundle install`
+  - Next Run `rails db:create`
+  - Include master.key in `config/master.key`. The master key will be shared in email.
+  - To run the server use `./bin/dev` instead of `rails server`. This is only needed for the first.
